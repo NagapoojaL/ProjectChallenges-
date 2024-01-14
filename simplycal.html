@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+       background-image: url(https://img.freepik.com/premium-photo/clock-with-clock-face-many-objects-flying-air_81048-16885.jpg?w=900);
+       background-repeat: no-repeat;
+       background-size: cover;
+    }
+    #div1{
+        width: 60%;
+        height: 60vh;
+        backdrop-filter:blur(2px);
+        border-radius: 30px;
+        box-shadow: 6px 6px 6px white,6px 6px 6px white ,6px -6px 6px white ,-6px -6px 6px white;
+        display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       position: absolute;
+    }
+    #time{
+        font-size: 15vh;
+        color:black;
+        text-shadow: 5px 5px 5px red,2px 2px 2px white,-2px 2px -2px white ,2px -2px -2px white;
+    }
+   #date{
+    font-size: 8vw;
+    text-shadow: 3px 3px 3px red,;
+   }
+   #day{
+    font-size: 8vw;
+   }
+   #sec{
+    font-size: 36vw;
+    color: orangered;
+   }
+</style>
+<body>
+    <div id="div1">
+        <h1 id="time"></h1>
+        <h1 id="date"></h1>
+        <h1 id="day"></h1>
+    </div>
+    <h1 id="sec"></h1>
+
+
+    <script>
+        function clock(){
+            let date =new Date();
+            let h=date.getHours();
+
+            let am_pm="AM";
+
+
+            let h1=(h<10)?("0"+h):h;
+            let h2=(h1>12)?(h1-12):h1;
+            let am_pm1=(h2>=12)?("PM"):"AM"
+            let m=date.getMinutes();
+            let m1=(m<10)?("0"+m):m;
+            let s=date.getSeconds();
+            let s1=(s<10)?("0"+s):s;
+
+
+            let day=date.getDay();
+            let arrDay=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+            let month=date.getMonth()
+            let arrmonth=["jan","feb","march","april","may","june","july","aug","sep","oct","Nov","Dec"]
+            let d=date.getDate()
+            let year=date.getFullYear();
+
+            document.getElementById("time").innerHTML=`${h2}:${m1}:${am_pm}`
+            document.getElementById("sec").innerHTML=`${s1}`;
+            document.getElementById("day").innerHTML=` ${arrDay[day]}`;
+            document.getElementById("date").innerHTML=`${d} /${arrmonth[month]}/${year}`
+
+
+        }
+        clock()
+        setInterval(()=>
+        {
+            clock()
+        },1000);
+    </script>
+</body>
+</html>
