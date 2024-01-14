@@ -1,0 +1,195 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        *{
+            margin: 0px;
+        }
+        body{
+        background-image: url(https://cdn.pixabay.com/photo/2016/11/06/05/36/lake-1802337_1280.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 800px;
+    }
+    .d{
+        height: 100px;
+        width: 100%;
+        /* background-color: blueviolet; */
+    }
+    .d nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+        .d1{
+            width: 40%;
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            left: -40px;
+            font-size: 25px;
+        }
+        
+        #a{
+            position: relative;
+            left: 500px;
+            bottom: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+        h1{
+            position: relative;
+            left: 10px;
+            top: 30px;
+            color: white;
+        }
+        h1:hover{
+             color: red;
+             transition: 3s;
+             font-size: 45px;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 400px;
+            border-radius: 30px;
+            border: 3px solid white;
+            backdrop-filter: blur(30px);
+            position: relative;
+            left: 600px;
+            top: 100px;
+            box-shadow: 0px 0px 15px white;
+            /* box-shadow: 3px 3px 1px white,3px 3px 1px white,1px 3px 1px white,3px 1px 1px white; */
+        }
+        input{
+           position: relative;
+           top: 10px;
+           right: 50px;
+           border: none;
+           outline: none;
+           color: black;
+           background: transparent;
+        }
+        h2{
+            color: yellow;
+            font-style: italic;
+            /* border: 2px solid red; */
+            height: 30px;
+            position: relative;
+            bottom: 170px;
+            left: 80px;
+            /* text-shadow: 3px 0px 5px red; */
+            text-shadow: 0px 3px 1px red,0px 3px 1px red,0px 3px 1px red,3px 0px 1px red;
+        }
+        button{
+            padding: 10px 20px;
+            background: transparent;
+            color: black;
+            background-color: white;
+        }
+        button:hover{
+                 background-color: brown;
+                 color: white;
+                 transition: 3s;
+                font-size: 20px;
+                 
+        }
+        hr{
+            position: relative;
+            top: 10px;
+            right: 50px;
+        }
+        ::placeholder{
+            color: aliceblue;
+        }
+        /* ::placeholder:hover{
+            transform:translateY(200px) ;
+        } */
+        i{
+            position: relative;
+            left: 130px;
+           color: white;
+        }
+        i:hover{
+            transform: translateY(-10px);
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="d">
+            <h1>logo</h1>
+            <nav>
+            <div class="d1">
+                <a href="#" id="a">Home</a>
+                <a href="#" id="a">About</a>
+                <a href="#" id="a">services</a>
+                <a href="#" id="a">Contacts</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="box">
+        <h2>login</h2>
+        <table>
+            <tr>
+                <td><input type="text" id="inp1" placeholder="User Name" ><hr><i class="fa-solid fa-user"></i></td>
+                <small id="small"></small>
+            </tr>
+            <tr>
+                <td><br><input type="text" placeholder="Phone Number"><hr><i class="fa-solid fa-phone"></i></td>
+            </tr>
+            <tr>
+                <td><br><input type="text" placeholder="Email"><hr><i class="fa-solid fa-envelope"></i></td>
+            </tr>
+            <tr>
+                <td><br><input type="text" placeholder="Password"><hr><i class="fa-solid fa-lock"></i></td>
+            </tr>
+            <tr><br><br>
+                <td><br><br><button onclick="demo()">Submit</button></td>
+            </tr>
+        </table>
+    </div>
+
+        <script>
+            function demo()
+        {
+            let inp1=document.getElementById("inp1").value;
+            console.log(inp1)
+            let input=document.getElementById("inp1")
+            let small =document.getElementById("small")
+            let reg1=/^[a-z A-Z]{3,15}$/
+            if(inp1=="")
+            {
+                input.style.border=`3px solid red`
+                small.innerHTML=`please don't leave empty`
+                small.style.color=`red`
+                small.style.visibility="visible"
+            }
+            else if(inp1.match(reg1))
+            {
+                input.style.border=`3px solid green`
+                small.style.visibility="hidden"
+            }
+            else{
+                input.style.border=`3px solid red`
+                small.innerHTML=`invalid user input`
+                small.style.color=`red`
+                small.style.visibility="visible"
+            }
+        }
+        </script>
+</body>
+</html>
